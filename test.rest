@@ -1,0 +1,37 @@
+GET http://localhost:5000/users
+
+###
+
+GET http://localhost:5000/users/loggin/628e7c9dee9d84f9eef73d06
+
+###
+
+POST http://localhost:5000/users/add
+content-type: application/json
+{
+     "firstName": "Elin",
+     "lastName": "olssson",
+     "email": "Elin@mail.com",
+     "passWord": "hejhej123",
+     "newsLetter": true
+}
+
+###
+
+POST http://localhost:5000/users/loggin
+content-type: application/json
+
+{
+     "email": "Elin@mail.com",
+     "passWord": "hejhej123"
+}
+
+###
+
+PUT http://localhost:5000/users/acceptnews
+content-type: application/json
+
+{
+     "_id": "628f315415a9c0c65ad3031e",
+     "newsLetter": true
+}

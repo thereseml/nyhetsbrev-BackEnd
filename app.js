@@ -1,19 +1,27 @@
 var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-
-const adminRouter = require('./routes/admin');
-
+var adminRouter = require('./routes/admin');
+var usersRouter = require('./routes/users');
+var mongoose = require('mongoose')
 var app = express();
+var port = 5000
 
-app.use(logger('dev'));
+
+const options = {useNewUrlParser: true, useUnifiedTopology: true}
+mongoose.connect('mongodb://localhost:27017/newsletter', options, (error) => {
+   if (error) {
+       console.log("Något blev fel " + error);
+   } else {
+       console.log("Databasen fungerar!");
+   }
+})
+
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/admin', adminRouter);
+app.use('/users', usersRouter);
+
+app.listen(port, () => {
+    console.log("Servern kört på port " + port);
+})
 
 module.exports = app;
