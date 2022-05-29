@@ -1,8 +1,8 @@
-GET http://localhost:5000/users
+GET http://localhost:5000/admin/loggedin
 
 ###
 
-GET http://localhost:5000/users/loggin/628e7c9dee9d84f9eef73d06
+GET http://localhost:5000/users/loggin/
 
 ###
 

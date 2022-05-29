@@ -14,6 +14,12 @@ router.get('/loggin/:id', async function(req, res, next) {
 });
 
 
+router.get('/loggedin', async function(req, res, next) {
+  const users = await userModel.find()
+  res.status(200).json(users)
+});
+
+
 // Logga in som användare
 router.post("/loggin", async (req, res) => {
   const user = await userModel.find()

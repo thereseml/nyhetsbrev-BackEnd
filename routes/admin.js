@@ -67,7 +67,6 @@ router.get('/trueUsers', async (req, res,) => {
         }
 
 
-
     res.send(showList + loggOut + " " + allUsers)
 });
 
